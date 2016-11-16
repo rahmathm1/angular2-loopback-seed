@@ -1,1 +1,1 @@
-# express-angular2-seed
+# express-loopback-seed
