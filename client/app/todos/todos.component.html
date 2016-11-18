@@ -1,0 +1,14 @@
+  <div class="page-header">
+    <h1>Todos <small>All</small></h1>
+  </div>
+  <ul class="list-group"> 
+    <li class="list-group-item" *ngFor="let todo of todos">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" [(ngModel)]="todo.status" (change)="updateTodo(todo)"> {{ todo.title }}
+        </label>
+        <button (click)="deleteTodo(todo)" class="btn btn-xs btn-danger pull-right">X</button>
+        <a [routerLink]="['/todos', 'id', todo.id ]"  class="btn btn-xs btn-primary pull-right">View</a>
+      </div>
+    </li>
+  </ul>
