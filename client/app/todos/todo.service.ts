@@ -13,16 +13,15 @@ export class TodoService {
         this.apiEndpoint = '/api/items';
     }
 
-    create(todo: Todo) {
-        return this.http.post(this.apiEndpoint, todo);
-    }
-
     delete(todo: Todo) {
         return this.http.delete(this.apiEndpoint + "/" + todo.id);
     }
 
-    update(todo: Todo) {
-        return this.http.put(this.apiEndpoint, todo);
+    save(todo: Todo) {
+        if(todo.id)
+            return this.http.put(this.apiEndpoint, todo);
+        else
+            return this.http.post(this.apiEndpoint, todo);
     }
 
     get(id: string) {
@@ -31,5 +30,9 @@ export class TodoService {
 
     getAll() {
         return this.http.get(this.apiEndpoint);
+    }
+
+    getCount(condition) {
+        return this.http.get(this.apiEndpoint, condition);
     }
 }

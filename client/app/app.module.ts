@@ -10,10 +10,11 @@ import { routerConfig } from './router-config';
 import { AppComponent }  from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TodosComponent } from './todos/todos.component';
-import { NewTodoComponent } from './new-todo/new-todo.component';
-import { TodoComponent } from './todo/todo.component';
+import { NewTodoComponent } from './todos/new.component';
+import { TodoDetailsComponent } from './todos/details.component';
+import { TodoSummaryComponent } from './todos/summary.component';
 
-import { TodoService } from './todo/todo.service';
+import { TodoService } from './todos/todo.service';
 
 @NgModule({
   imports:      [ BrowserModule, 
@@ -25,7 +26,8 @@ import { TodoService } from './todo/todo.service';
                   NavbarComponent,
                   TodosComponent,
                   NewTodoComponent,
-                  TodoComponent ],
+                  TodoDetailsComponent,
+                  TodoSummaryComponent ],
   providers:    [ TodoService ],
   bootstrap:    [ AppComponent ]
 })

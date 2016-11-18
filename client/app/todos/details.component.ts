@@ -8,11 +8,11 @@ import { Todo } from './todo.model';
 @Component({
     moduleId: module.id,
     selector: 'todos',
-    templateUrl: 'todo.component.html' ,
-    styleUrls: [ 'todo.component.css' ]
+    templateUrl: 'details.component.html' ,
+    styleUrls: [ 'details.component.css' ]
 })
 
-export class TodoComponent implements OnInit {
+export class TodoDetailsComponent implements OnInit {
     private todoService     : TodoService;
     private router          : Router;
     private activatedRoute  : ActivatedRoute;
@@ -28,13 +28,13 @@ export class TodoComponent implements OnInit {
         this.subscription = this.activatedRoute.params.subscribe(
             (param: any) => {
                 let id = param['id'];
-                this.getTodos(id);
+                this.getTodo(id);
         });
     }
 
     ngOnInit() { }
 
-    getTodos(id: string) {
+    getTodo(id: string) {
         this.todoService.get(id).subscribe(
             response => this.todo = response.json(),
             response => this.message = <any>response);

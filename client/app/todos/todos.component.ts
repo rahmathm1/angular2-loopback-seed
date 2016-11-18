@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../todo/todo.service';
-import { Todo } from '../todo/todo.model';
+import { TodoService } from './todo.service';
+import { Todo } from './todo.model';
 
 @Component({
     moduleId: module.id,
@@ -37,7 +37,8 @@ export class TodosComponent implements OnInit {
             response => this.message = <any>response);
     }
 
-    updateTodo(todo: Todo) {
+    updateTodo(todo: Todo, status: boolean) {
+        todo.status = !todo.status;
         this.todoService.update(todo).subscribe(
             response => {
                 this.getTodos();

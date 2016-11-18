@@ -1,3 +1,11 @@
 .list-group-item .checkbox .btn:last-child {
     margin-right: 10px;
 }
+.list-group-item .checkbox span.glyphicon {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    position: relative;
+    top: 4px;
+    cursor: pointer;
+}

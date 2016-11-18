@@ -1,6 +1,6 @@
 import { TodosComponent } from './todos/todos.component';
-import { NewTodoComponent } from './new-todo/new-todo.component';
-import { TodoComponent } from './todo/todo.component';
+import { NewTodoComponent } from './todos/new.component';
+import { TodoDetailsComponent } from './todos/details.component';
 
 export const routerConfig = [
     {
@@ -11,7 +11,10 @@ export const routerConfig = [
                 component: TodosComponent
             },{
                 path: 'id/:id',
-                component: TodoComponent
+                component: TodoDetailsComponent
+            },{
+                path: 'id/:id/edit',
+                component: NewTodoComponent
             },{
                 path: 'new',
                 component: NewTodoComponent

@@ -1,5 +1,9 @@
+.details {
+    margin-bottom: 30px;
+}
 .details .media-left span.glyphicon {
     font-size: 42px;
     position: relative;
     top: -2px;
 }
+
