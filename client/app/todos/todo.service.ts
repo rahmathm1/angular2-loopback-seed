@@ -32,7 +32,7 @@ export class TodoService {
         return this.http.get(this.apiEndpoint);
     }
 
-    getCount(condition) {
-        return this.http.get(this.apiEndpoint, condition);
+    getCount(status: boolean) {
+        return this.http.get(this.apiEndpoint + "/count/?where[status]=" + status);
     }
 }

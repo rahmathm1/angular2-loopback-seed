@@ -11,26 +11,27 @@ import { Todo } from './todo.model';
 export class TodoSummaryComponent implements OnInit {
     
     private todoService         : TodoService;
-    private where               : any;
     private totalCount          : number;
     private completedCount      : number;
     private openCount           : number;
 
     constructor(todoService: TodoService) {
         this.todoService = todoService;
+        this.totalCount = 0;
     }
 
     ngOnInit() {
-        this.getTodoCounts(true, response => this.completedCount = response.json().count);
-        this.getTodoCounts(false, response => this.totalCount = response.json().count); 
+        this.getTodoCounts(true, response => {
+            this.totalCount += response.json().count;
+            this.completedCount = response.json().count
+        });
+        this.getTodoCounts(false, response => {
+            this.totalCount += response.json().count;
+            this.openCount = response.json().count
+        }); 
     }
 
     getTodoCounts(status: boolean, cb) {
-        this.where = {
-            where: {
-                status: status
-            }
-        };
-        this.todoService.getCount(this.where).subscribe(cb);
+        this.todoService.getCount(status).subscribe(cb);
     }
 }
