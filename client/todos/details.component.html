@@ -1,0 +1,15 @@
+    <div class="page-header">
+        <h1>Todo <small>Details</small></h1>
+    </div>
+    <div class="media details" *ngIf="todo">
+        <div class="media-left">
+                <span *ngIf="!todo.status" class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+                <span *ngIf="todo.status" class="glyphicon glyphicon-check text-primary" aria-hidden="true"></span>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{ todo.title }}</h4>
+            <p>{{ todo.description }}</p>
+        </div>
+    </div>
+    <a class="btn btn-sm btn-default" [routerLink]="['edit']">Edit</a> 
+    <a class="btn btn-sm btn-danger" (click)="deleteTodo(todo)">Remove</a> 
