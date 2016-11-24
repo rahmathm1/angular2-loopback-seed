@@ -1,0 +1,14 @@
+
+  <ul class="pagination" *ngIf="pages.length > 1">
+    <li>
+      <a href="#" aria-label="Previous" (click)="show(1)">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li  *ngFor="let page of pages; let i = index;" [ngClass]="{'active': i+1 == activePageNumber }"><a href="#" (click)="show(i+1)">{{ i+1 }}</a></li>
+    <li>
+      <a href="#" aria-label="Next" (click)="show(pages.length)">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
